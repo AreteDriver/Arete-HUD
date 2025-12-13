@@ -66,8 +66,10 @@ The backend exposes the following REST endpoints:
 
 3. **Configure AI Providers**
    - The backend provides the API structure for multi-AI querying
-   - Implement your preferred AI provider integrations in `agents.py`
+   - Implement your preferred AI provider integrations in `agents.py` (see the endpoint definitions in `main.py` for required function signatures)
    - Set up API keys for your chosen providers (OpenAI, Anthropic, Google, etc.) via environment variables or `.env` file
+
+> **Development Note:** The `agents.py` module requires implementation of `ask_agent()`, `analyze_differences()`, and `synthesize_answer()` functions, and `context_manager.py` requires `get_topics()` to make the API endpoints fully functional.
 
 ## ▶️ Usage
 
