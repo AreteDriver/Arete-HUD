@@ -101,7 +101,11 @@ curl -X POST "http://localhost:8000/ask" \
 curl -X POST "http://localhost:8000/analyze" \
   -H "Content-Type: application/json" \
   -d '{
-    "responses": {...}
+    "responses": {
+      "openai": "Response from OpenAI...",
+      "anthropic": "Response from Anthropic...",
+      "google": "Response from Google..."
+    }
   }'
 ```
 
@@ -110,14 +114,18 @@ curl -X POST "http://localhost:8000/analyze" \
 curl -X POST "http://localhost:8000/synthesize" \
   -H "Content-Type: application/json" \
   -d '{
-    "responses": {...}
+    "responses": {
+      "openai": "Response from OpenAI...",
+      "anthropic": "Response from Anthropic...",
+      "google": "Response from Google..."
+    }
   }'
 ```
 
 ## 💼 Value Proposition
 
 **Time Efficiency:**
-- Reduce AI consultation time by 70% - no more manual copy-pasting between platforms
+- Significantly reduce AI consultation time - no more manual copy-pasting between platforms
 - Get parallel responses instead of sequential queries
 
 **Better Decision Making:**
