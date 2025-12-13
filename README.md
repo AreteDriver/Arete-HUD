@@ -1,6 +1,6 @@
 # Arete HUD - Multi-AI Query Aggregator & Synthesizer
 
-Arete HUD is a powerful utility tool that streamlines your AI workflow by querying multiple AI providers simultaneously, analyzing their responses, and synthesizing comprehensive insights—all through a unified FastAPI backend.
+Arete HUD is a FastAPI-based utility framework designed to streamline AI workflows by providing a unified backend for querying multiple AI providers simultaneously, analyzing their responses, and synthesizing comprehensive insights.
 
 ## 🎯 Problem It Solves
 
@@ -18,12 +18,15 @@ Arete HUD is a powerful utility tool that streamlines your AI workflow by queryi
 
 ## 🚀 Key Features
 
-- **Multi-Provider AI Querying**: Query multiple AI providers (OpenAI, Anthropic, Google, etc.) in parallel
-- **Difference Analysis**: Automatically analyze and highlight differences between AI responses
-- **Answer Synthesis**: Intelligently combine multiple AI perspectives into comprehensive answers
-- **Topic-Based Organization**: Categorize and manage queries by subject matter
+The Arete HUD API provides endpoints for:
+- **Multi-Provider AI Querying**: Designed to query multiple AI providers (OpenAI, Anthropic, Google, etc.) in parallel
+- **Difference Analysis**: Framework for analyzing and highlighting differences between AI responses
+- **Answer Synthesis**: Infrastructure to intelligently combine multiple AI perspectives into comprehensive answers
+- **Topic-Based Organization**: Support for categorizing and managing queries by subject matter
 - **REST API Architecture**: Clean, scalable FastAPI backend for easy integration
-- **Context Preservation**: Maintain conversation context across multiple queries
+- **Context Preservation**: Designed to maintain conversation context across multiple queries
+
+> **Note:** The backend provides the API structure and endpoints. AI provider integrations can be implemented in the `agents.py` module according to your specific requirements.
 
 ## 🔧 Technical Specifications
 
@@ -34,14 +37,15 @@ Arete HUD is a powerful utility tool that streamlines your AI workflow by queryi
 - **CORS Support:** Configured for local development (localhost, 127.0.0.1)
 
 **Core Components:**
-- `main.py` - FastAPI application with API routes
-- `agents.py` - Agent management and AI provider integration
+- `main.py` - FastAPI application with API routes and endpoint definitions
+- `agents.py` - Agent management framework for AI provider integration
 - `context_manager.py` - Context and topic management system
 
 **API Endpoints:**
+The backend exposes the following REST endpoints:
 - `GET /topics` - Retrieve available topics
 - `GET /context` - Get current context state
-- `POST /ask` - Query multiple AI providers simultaneously
+- `POST /ask` - Query multiple AI providers simultaneously (requires provider implementation)
 - `POST /analyze` - Analyze differences between AI responses
 - `POST /synthesize` - Synthesize a comprehensive answer from multiple responses
 
@@ -61,8 +65,9 @@ Arete HUD is a powerful utility tool that streamlines your AI workflow by queryi
    ```
 
 3. **Configure AI Providers**
-   - Set up API keys for your preferred AI providers (OpenAI, Anthropic, Google, etc.)
-   - Create a `.env` file or configure environment variables with your API credentials
+   - The backend provides the API structure for multi-AI querying
+   - Implement your preferred AI provider integrations in `agents.py`
+   - Set up API keys for your chosen providers (OpenAI, Anthropic, Google, etc.) via environment variables or `.env` file
 
 ## ▶️ Usage
 
@@ -75,6 +80,8 @@ uvicorn main:app --reload
 The API will be available at `http://localhost:8000`
 
 **Example API Requests:**
+
+The API is structured to support the following interactions. Note that AI provider implementations should be added to the `agents.py` module:
 
 **Query Multiple AI Providers:**
 ```bash
